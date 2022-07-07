@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Login;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -13,7 +14,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('post.post');
+        $data = ['LoggedUserInfo'=>Login::where('id','=',session('LoggedUser'))->first()];
+        return view('post.post',$data);
     }
 
     /**

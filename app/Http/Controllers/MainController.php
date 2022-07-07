@@ -27,20 +27,32 @@ class MainController extends Controller
         ]);
 
         $userInfo = Login::where('email', '=', $request->email)->first();
-        if ($userInfo!=$request->email) {
+        if (!$userInfo) {
             //check email
-            return back()->with('We do not recognize this email');
+            return redirect('/admin/login')->with('fail','We do not recognize this email');
         } else {
                 //check password
                 if ($userInfo->password == $request->password) {
                     $request->session()->put('LoggedUser', $userInfo->id);
-                    return redirect('admin/post');
+                    return redirect('/admin/post');
                 } else {
-                    return back()->with('fail','We do not recognize this password');
+                    return redirect('/admin/login')->with('fail','We do not recognize this password');
                 }
 
             }
         }
+
+        public function logout(){
+        if(session()->has('LoggedUser')){
+            session()->pull('LoggedUser');
+            return redirect('/admin/login')->with('success','You are logged out');
+        }
+        }
+
+
+
+
+
 
 
 
