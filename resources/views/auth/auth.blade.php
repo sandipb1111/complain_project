@@ -10,11 +10,7 @@
 </head>
 <body>
 <form action="{{ route('auth.check') }}" method="post" class="login-form">
-    @if(Session::get('fail'))
-        <div class="alert alert-danger">
-            {{ Session::get('fail') }}
-        </div>
-    @endif
+
     @csrf
     <div class="form-header">
         <h1 class="form-title">Log In With</h1>
@@ -30,6 +26,11 @@
     </div>
 
     <div class="line">OR</div>
+    @if(Session::get('fail'))
+        <div class="alert alert-danger">
+            {{ Session::get('fail') }}
+        </div>
+    @endif
     <div class="placeholder-container">
         <input type="text" name="email"  class="input-element" placeholder=" " autocomplete="off">
         <label for="email" class="placeholder">Email</label>
@@ -47,6 +48,7 @@
     <div class="form-submit">
         <input type="submit" value="Login" class="btn login-btn">
     </div>
+
 
     <div class="links">
         <a href=" " >Forgot Password?</a>

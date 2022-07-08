@@ -22,7 +22,7 @@ class AuthCheck
         if(session()->has('LoggedUser') && ($request->path() == 'admin/login' || $request->path() == 'admin/register')){
             return redirect('/admin/post');
         }
-        
+
         return $next($request);
     }
 }
