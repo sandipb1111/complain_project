@@ -1,10 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;500&display=swap');
 
+
 :root {
     --clr-light-grey: #5C5C5C;
     --clr-primary-blue: #54D4D4;
     --clr-light-blue-focus: #48b9c7;
     --ff-primary: 'Poppins', sans-serif;
+    --clr-valid-theme : green;
+    --clr-invalid-theme : red;
+
+    --clr-gradient: linear-gradient(234.06deg, #54D4D4 7.16%, #149DE1 76.12%);
 
     --box-shadow: 0px 8px 16px 6px rgba(105, 105, 105, 0.15);
     --gradient-blue: linear-gradient(180deg, #54D4D4 0%, #149DE1 100%);
@@ -15,18 +20,25 @@
     --twitter-icon-path: url("./../fonts/icons8-twitter-50.svg");
 }
 
+
 /* remove defaults */
 *{
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 a{
     text-decoration: none;
-    color: var(--clr-primary-blue);
+    color: var(--clr-light-grey);
 }
 
 body{
     font-family: var(--ff-primary);
+    min-height: 100vh;
+    display: grid;
+    align-items: center;
+
 }
 
 button {
@@ -35,15 +47,25 @@ button {
 }
 
 /* Form container */
-.login-form {
+.form {
     display: flex;
     flex-direction: column;
     width: 80%;
-    max-width: 600px;
+    max-width: 420px;
     gap: 2em;
     justify-content: space-between;
     margin-inline: auto;
     text-align: center;
+
+    border: dashed 2px lightsalmon;
+    /* From https://css.glass */
+    /* background: rgba(90, 78, 78, 0.2); */
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 1em;
 }
 
 .form-title{
@@ -84,7 +106,7 @@ button {
 .line::before{
     content: " ";
     display: inline-block;
-    width: 47%;
+    width: 27%;
     height: .10em;
     margin-bottom: .2em;
     background-color: var(--clr-light-grey);
@@ -101,9 +123,14 @@ button {
 input{
     height: 3em;
     width: 100%;
+    border: none;
+    /* padding-top: .5em; */
 }
 
 .placeholder-container {
+    display: flex;
+    align-items: center;
+    border: solid 1px #999;
     position: relative;
 }
 
@@ -126,6 +153,7 @@ input{
     left: 0.8em;
     font-size: .8em;
     background-color: white;
+    padding-inline: .5em;
     /* color: var(--clr-light-blue-focus); */
 }
 
@@ -135,6 +163,7 @@ input{
     background: linear-gradient(180deg, #54D4D4 0%, #149DE1 100%);
     color: white;
     border-radius: 2px;
+    width: 8em;
     /* width: 14em;                        */
 }
 
@@ -148,6 +177,7 @@ input{
 
 /* links related to accounts */
 .links{
+    font-size: 12px;
     display: flex;
     flex-direction: column;
     gap: .5em;
@@ -174,4 +204,31 @@ input{
         width: 20%;
     }
 
+}
+
+/* for validation icons */
+.valid__icons {
+    position: absolute;
+    top: .3em;
+    right: .5em
+}
+
+.valid__theme{
+    color: green;
+    border-color: var(--clr-valid-theme);
+}
+
+.invalid__theme {
+    color: red;
+    border-color: var(--clr-invalid-theme);
+}
+
+
+/* temporary
+*/
+.error-msg {
+    font-size: 12px;
+    color: var(--clr-invalid-theme);
+    text-align: left;
+    margin-top: -1em;
 }

@@ -9,7 +9,7 @@
     <title>Login</title>
 </head>
 <body>
-<form action="{{ route('auth.check') }}" method="post" class="login-form">
+<form action="{{ route('auth.check') }}" method="post" class="form">
 
     @csrf
     <div class="form-header">
@@ -34,9 +34,10 @@
     <div class="placeholder-container">
         <input type="text" name="email"  class="input-element" placeholder=" " autocomplete="off">
         <label for="email" class="placeholder">Email</label>
-        <span class="error-message">@error('email'){{$message}}@enderror</span>
+
 
     </div>
+    <span class="error-msg">@error('email'){{$message}}@enderror</span>
 
     <div class="placeholder-container">
         <input type="password" name="password"  class="input-element" placeholder=" ">
