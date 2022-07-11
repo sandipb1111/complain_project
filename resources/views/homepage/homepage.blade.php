@@ -27,9 +27,9 @@
         @if(!$LoggedUserInfo)
             <a class="btn login-btn" href="{{route('auth.login')}}"><input type="button" value="login" class="btn login-btn" ></a>
     @endif
-
+        @if($LoggedUserInfo)
         <div class="nav__profile">
-
+            {{ $LoggedUserInfo['username'] }}
 
             <div class="img__container">
 
@@ -42,6 +42,7 @@
                 <a href="{{ route('auth.logout') }}">Logout</a>
             </div>
         </div>
+        @endif
     </div>
 </nav>
 

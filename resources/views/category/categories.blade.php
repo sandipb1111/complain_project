@@ -28,10 +28,14 @@
             <span class="material-symbols-outlined"> search </span>
         </div>
         @if(!$LoggedUserInfo)
-        <input type="button" value="login" class="btn login-btn" >
+        <input type="submit" value="login" class="btn login-btn" >
+
         @endif
+        @if($LoggedUserInfo)
         <div class="nav__profile">
+            {{ $LoggedUserInfo['username'] }}
             <div class="img__container">
+
                 <img src="{{url('img/default_profile.png')}}" alt="a good looking man" srcset="">
             </div>
 
@@ -39,6 +43,7 @@
                 <a href="">Logout</a>
             </div>
         </div>
+        @endif
         <!-- <span class="material-icons"> menu </span> -->
     </div>
 </nav>
