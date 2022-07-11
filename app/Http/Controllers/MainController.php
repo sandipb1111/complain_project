@@ -34,7 +34,7 @@ class MainController extends Controller
                 //check password
                 if ($userInfo->password == $request->password) {
                     $request->session()->put('LoggedUser', $userInfo->id);
-                    return redirect('/admin/post');
+                    return redirect('/admin/homepage');
                 } else {
                     return redirect('/admin/login')->with('fail','We do not recognize this password');
                 }
@@ -45,9 +45,18 @@ class MainController extends Controller
         public function logout(){
         if(session()->has('LoggedUser')){
             session()->pull('LoggedUser');
-            return redirect('/admin/login')->with('success','You are logged out');
+            return redirect('/admin/homepage')->with('success','You are logged out');
         }
         }
+        public function homepage(){
+            $data = ['LoggedUserInfo'=>Login::where('id','=',session('LoggedUser'))->first()];
+            return view('homepage.homepage',$data);
+        }
+        public function category(){
+            $data = ['LoggedUserInfo'=>Login::where('id','=',session('LoggedUser'))->first()];
+        return view('category.categories',$data);
+        }
+
 
 
 

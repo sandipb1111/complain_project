@@ -18,7 +18,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () { return view('welcome'); });
 Route::get('/admin/logout',[MainController::class,'logout'])->name("auth.logout");
 Route::post('/admin/check',[MainController::class,'check'])->name("auth.check");
-Route::get('/admin/homepage',[PostController::class,'create'])->name("admin.homepage");
+Route::get('/user/homepage',[PostController::class,'create'])->name("admin.homepage");
+Route::get('/admin/category',[MainController::class,'category'])->name("admin.category");
+Route::get('/admin/homepage',[MainController::class,'homepage'])->name("admin.homepage");
+Route::get('/admin/category',[MainController::class,'category'])->name("auth.category");
+
 
 
 
@@ -28,6 +32,8 @@ Route::group(['middleware' => ['AuthCheck']],function(){
     Route::get('/admin/post',[PostController::class,'index'])->name("admin.post");
     Route::get('/admin/login',[MainController::class,'login'])->name("auth.login");
     Route::get('/admin/register',[MainController::class,'register'])->name("auth.register");
+
+
 
 
 });

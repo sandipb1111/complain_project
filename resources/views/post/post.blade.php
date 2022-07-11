@@ -8,4 +8,5 @@
     </li>
 </ul>
 <a href="{{ route('auth.logout') }}">Logout</a>
+<a href="{{ route('admin.homepage') }}">Homepage</a>
 

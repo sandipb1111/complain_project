@@ -3,13 +3,15 @@
     --clr-light-grey: #5C5C5C;
     --clr-primary-blue: #54D4D4;
     --clr-light-blue-focus: #48b9c7;
+
     --ff-primary: 'Poppins', sans-serif;
 
     --clr-dark-grey: #999999;
 
     --box-shadow: 0px 8px 16px 6px rgba(105, 105, 105, 0.15);
+    --btn-box-shadow:  0px 0px 8px #74DCDC;
     --gradient-blue: linear-gradient(180deg, #54D4D4 0%, #149DE1 100%);
-    --default-padding: .5em 5em;
+    --default-padding: 1em 5em;
 
     /* temporary */
     --fb-icon-path: url("./../fonts/icons8-facebook-50.svg");
@@ -20,6 +22,9 @@
 body{
     font-family: "poppins", sans-serif;
 }
+
+/* for font awesome itallic icons */
+.dslc-content i.fa { font-style: normal;}
 
 /* remove defaults */
 input{
@@ -32,6 +37,7 @@ a{
     text-decoration: none;
 }
 
+
 a:hover {
     color: var(--clr-primary-blue);
 }
@@ -41,11 +47,15 @@ a:hover {
     font-size: bold;
 }
 
-body {
+.container {
     padding: var(--default-padding);
     display: flex;
     flex-direction: column;
     gap: 4em;
+}
+
+body{
+    position: relative;
 }
 
 button{
@@ -61,18 +71,25 @@ button{
 } */
 
 .nav__container {
+    box-sizing: border-box;
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: var(--clr-dark-grey);
     position: fixed;
-    width: 90%;
+    width: 100%;
     z-index: 4;
     background: white;
-    box-shadow: #90b0cc 4px 4px;
+    box-shadow: #69e6e6 0px 4px 16px;
     top: 0;
     left: 0;
     padding: var(--default-padding);
+}
+
+/* LINKS IN NAVIGATION BAR */
+.nav__links {
+    display: flex;
+    gap: 2em;
 }
 
 .nav__search {
@@ -93,6 +110,43 @@ button{
     border-right: 1px solid var(--clr-light-grey);
 }
 
+/* Profile Image section in navBar */
+.nav__profile .img__container {
+    width: 2em;
+    height: 2em;
+    border: solid 2px var(--clr-light-blue-focus);
+}
+
+.nav__profile .img__container:hover {
+    border: solid 1px var(--clr-dark-grey);
+    cursor: pointer;
+}
+
+/* logOut tooltip */
+.tooltip__container {
+    position: absolute;
+    top: 4em;
+    right: 1em;
+    background: var(--clr-light-grey);
+    padding: .5em 1em;
+    border-radius: 8px;
+}
+
+.hidden{
+    display: none;
+}
+
+.tooltip__container::before {
+    content: "";
+    width: 1em;
+    height: 1em;
+    position: absolute;
+    top: -.5em;
+    left: 0;
+    clip-path: polygon(0 0, 0% 100%, 100% 100%);
+    background: inherit;
+}
+
 /* login button */
 .btn {
     border: none;
@@ -103,18 +157,47 @@ button{
     /* width: 14em;                        */
 }
 
+.btn:hover {
+    box-shadow: var(--btn-box-shadow);
+    background-image: none;
+    color: black;
+}
+
 .login-btn {
     padding: .2em 1em;
+}
+
+.complaint-btn {
+    letter-spacing: 2px;
+    padding: 1em 2em;
+    width: fit-content;
 }
 
 .main {
     display: flex;
     gap: 2em;
+    align-items: center;
     margin-top: 6em;
 }
 
 .left__container {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
     max-width: 50%;
+}
+
+.our__moto {
+    font-size: 36px;
+    line-height: 40px;
+    margin: 0;
+    background: linear-gradient(234.06deg, #54D4D4 7.16%, #149DE1 76.12%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    /* text-fill-color: transparent; */
+    /* font-size: 25px; */
+    text-transform: uppercase;
 }
 
 /* main moto image section */
@@ -123,11 +206,10 @@ button{
     height: 20em;
     width: 50%;
     background-position: center;
-    object-fit: contain;
-    background-size: auto;
     background-size: contain;
     background-repeat: no-repeat;
 }
+
 
 /* TRENDING SECTION */
 
@@ -142,6 +224,7 @@ button{
     display: flex;
     flex-direction: column;
     gap: 1em;
+    flex: 1 auto;
     background: var(--gradient-blue);
     width: 20em;
     max-height: 15em;
@@ -161,6 +244,7 @@ button{
 
 /* profile image container  */
 .img__container {
+    box-sizing: border-box;
     width: 4em;
     height: 4em;
     border-radius: 50%;
@@ -220,4 +304,128 @@ button{
 .trending__item:hover{
     background: white;
     border: dashed 2px var(--clr-light-blue-focus);
+}
+
+.trending__item:hover .img__container {
+    border: solid 1px var(--clr-dark-grey);
+}
+
+
+/* OUR SERVICE SECTION */
+.our-service {
+    display: flex;
+    gap: 3em;
+    align-items: center;
+}
+
+
+.our-service .img__container{
+    width: 50%;
+    height:30em;
+    object-fit: contain;
+    border-radius: initial;
+}
+
+.our-service .img__container img{
+    height:25em;
+    object-fit: contain;
+}
+
+.our-service .right__content {
+    flex: 1 ;
+}
+
+/* Footer */
+.footer__container {
+    position: absolute;
+    left:0;
+    right: 0;
+    /* background: var(--gradient-blue); */
+    background-color: #54D4D4;
+    padding: 2em 4em 1em;
+    margin: 4em -.5em;
+
+    display: flex;
+    flex-direction: column;
+    gap: 3em;
+}
+
+/* headings in footer section */
+.top__container h4 {
+    letter-spacing: 1px;
+    background: rgba(105, 105, 105, 0.15);
+    margin: 0;
+    background: white;
+    width: fit-content;
+    padding: .5em 1em;
+}
+
+.social__container {
+    display: flex;
+    gap: 1em;
+    text-align: center;
+
+}
+
+.social__container i {
+    font-style: normal;
+    font-size:large;
+    width: 1em;
+    padding: 1em;
+    background: grey;
+    color: whtie;
+}
+
+.social__container i:hover {
+    cursor: pointer;
+    background: white;
+}
+
+.footer__container a{
+    color: black;
+    font-size: 18px;
+}
+
+.footer__container a:hover{
+    color: white;
+    text-decoration: underline;
+}
+
+/* LINKS AND INFO SECTION IN FOOTER */
+.top__container {
+    display: flex;
+    justify-content: space-between;
+    gap: 3em;
+}
+
+.top__container .more__info {
+    display: flex;
+    flex-direction: column;
+}
+
+.top__container .footer__links {
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+    min-width: 10em;
+}
+
+.newsletter {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    min-width: 18em;
+}
+
+.newsletter input,
+.newsletter button {
+    padding: 1em;
+}
+
+.copyright__info {
+    color: white;
+    background: #225353;
+    padding: var(--default-padding);
+    margin: 0em -4em -1em;
+    text-align: right;
 }

@@ -6,16 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/brands.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <link rel="stylesheet" href="{{url('css/homepage.css')}}">
-    <title>homepage | complaint page</title>
+    <link rel="stylesheet" href="{{url('css/categories.css')}}">
+    <title>Categories | Wash Room</title>
 </head>
 <body>
 
 
 <nav class="nav__container">
     <div class="nav__links">
-        <a href="{{route('admin.homepage')}}" class="active">home</a>
-        <a href="{{route('auth.category')}}">categories</a>
+        <a href="{{route('admin.homepage')}}" >home</a>
+        <a href="{{route('auth.category')}}" class="active">categories</a>
         <a href="#">community</a>
     </div>
 
@@ -25,44 +28,35 @@
             <span class="material-symbols-outlined"> search </span>
         </div>
         @if(!$LoggedUserInfo)
-            <a class="btn login-btn" href="{{route('auth.login')}}"><input type="button" value="login" class="btn login-btn" ></a>
-    @endif
-
+        <input type="button" value="login" class="btn login-btn" >
+        @endif
         <div class="nav__profile">
-
-
             <div class="img__container">
-
                 <img src="{{url('img/default_profile.png')}}" alt="a good looking man" srcset="">
             </div>
 
-
-
             <div class="tooltip__container hidden" id="tooltip">
-                <a href="{{ route('auth.logout') }}">Logout</a>
+                <a href="">Logout</a>
             </div>
         </div>
+        <!-- <span class="material-icons"> menu </span> -->
     </div>
 </nav>
 
-<div class="container">
-    <!-- main moto sectoin -->
-    <section class="main">
-        <div class="left__container">
-            <h1 class="our__moto">this is what we intend to do..</h1>
-            <p class="msg">lorem ipsum dolor sit amet consectetur adipisicing elit. officiis sit illo cupiditate, quae voluptas eius autem nostrum optio ex
-                illo, aliquam? et reprehenderit illum
-                ex, deleniti tempora ab beatae neque </p>
-
-            <a href="{{route('admin.post')}}"><button type="submit" class="btn complaint-btn">FILE A COMPLAINT</button></a>
-        </div>
-        <div class="right__img__container">
-        </div>
+<div class="grid__container">
+    <section class="categories__container">
+        <div class="category__title">CATEGORY</div>
+        <a href="#"class="category active__category">Wash Room</a>
+        <a href="#"class="category">Library</a>
+        <a href="#"class="category">Canteen</a>
+        <a href="#"class="category">Sanitation</a>
+        <a href="#"class="category">Wash Room</a>
+        <a href="#"class="category">Miscellaneous</a>
     </section>
 
-    <section class="trending">
-
-        <h2>Trending</h2>
+    <!-- This is to adjust grid item  -->
+    <div class="adjust"></div>
+    <section class="categories__content__container">
 
         <div class="trending__container">
             <!-- Individual complaint box -->
@@ -78,7 +72,7 @@
                 </div>
 
                 <div class="trending__content">
-                    <span class="trending__category">Canteen</span>
+                    <span class="trending__category">Wash Room</span>
                     <div class="trending__complaint">K ho yesto jpt</div>
                 </div>
 
@@ -114,13 +108,13 @@
                         <img src="{{url('img/default_profile.png')}}" alt="a good looking man" srcset="">
                     </div>
                     <div class="user__info">
-                        <h3 class="user__name">Abhi Kafle</h3>
+                        <h3 class="user__name">Anvesha Giri</h3>
                         <span class="pub__date">2022-12-02</span>
                     </div>
                 </div>
 
                 <div class="trending__content">
-                    <span class="trending__category">Class Room</span>
+                    <span class="trending__category">Wash Room</span>
                     <div class="trending__complaint">There has been problem related to AC. Instead of cold air AC has been giving stream of cold water..</div>
                 </div>
 
@@ -156,99 +150,14 @@
                         <img src="{{url('img/default_profile.png')}}" alt="a good looking man" srcset="">
                     </div>
                     <div class="user__info">
-                        <h3 class="user__name">Abhi Kafle</h3>
-                        <span class="pub__date">2022-12-02</span>
-                    </div>
-                </div>
-
-                <div class="trending__content">
-                    <span class="trending__category">Class Room</span>
-                    <div class="trending__complaint">There has been problem related to AC. Instead of cold air AC has been giving stream of cold water..</div>
-                </div>
-
-                <div class="trending__cta">
-                    <button type="submit">Read Full Review</button>
-                </div>
-            </div>
-            <!-- Individual complaint box -->
-            <div class="trending__item">
-                <div class="trending__profile">
-                    <div class="img__container">
-                        <img src="{{url('img/default_profile.png')}}" alt="a good looking man" srcset="">
-                    </div>
-                    <div class="user__info">
-                        <h3 class="user__name">Abhi Kafle</h3>
-                        <span class="pub__date">2022-12-02</span>
-                    </div>
-                </div>
-
-                <div class="trending__content">
-                    <span class="trending__category">Class Room</span>
-                    <div class="trending__complaint">There has been problem related to AC. Instead of cold air AC has been giving stream of cold water..</div>
-                </div>
-
-                <div class="trending__cta">
-                    <button type="submit">Read Full Review</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="our-service">
-        <div class="img__container">
-            <img src="{{url('/img/ourService.png')}}" alt="a mobile phone">
-        </div>
-
-        <div class="right__content">
-            <h1>We are here to Help</h1>
-            <p class="listing">We help you on this</p>
-            <p class="listing">We help you on that and something more</p>
-            <p class="listing">We might help you with ...</p>
-        </div>
-    </section>
-
-    <!-- LATEST COMPLAINTS SECTION -->
-    <section class="trending">
-
-        <h2>Latest Comments</h2>
-
-        <div class="trending__container">
-            <!-- Individual complaint box -->
-            <div class="trending__item">
-                <div class="trending__profile">
-                    <div class="img__container">
-                        <img src="{{url('img/default_profile.png')}}" alt="a good looking man" srcset="">
-                    </div>
-                    <div class="user__info">
-                        <h3 class="user__name">Sandeep Basnet</h3>
-                        <span class="pub__date">2022-12-02</span>
-                    </div>
-                </div>
-
-                <div class="trending__content">
-                    <span class="trending__category">Canteen</span>
-                    <div class="trending__complaint">K ho yesto jpt</div>
-                </div>
-
-                <div class="trending__cta">
-                    <button type="submit">Read Full Review</button>
-                </div>
-            </div>
-            <!-- Individual complaint box -->
-            <div class="trending__item">
-                <div class="trending__profile">
-                    <div class="img__container">
-                        <img src="{{url('img/default_profile.png')}}" alt="a good looking man" srcset="">
-                    </div>
-                    <div class="user__info">
-                        <h3 class="user__name">Sonam Lama</h3>
+                        <h3 class="user__name">Bibek Adhikari</h3>
                         <span class="pub__date">2022-12-02</span>
                     </div>
                 </div>
 
                 <div class="trending__content">
                     <span class="trending__category">Wash Room</span>
-                    <div class="trending__complaint">There has been leakage from last month. Whole area is ...</div>
+                    <div class="trending__complaint">There has been problem related to AC. Instead of cold air AC has been giving stream of cold water..</div>
                 </div>
 
                 <div class="trending__cta">
@@ -268,7 +177,28 @@
                 </div>
 
                 <div class="trending__content">
-                    <span class="trending__category">Class Room</span>
+                    <span class="trending__category">Wash Room</span>
+                    <div class="trending__complaint">There has been problem related to AC. Instead of cold air AC has been giving stream of cold water..</div>
+                </div>
+
+                <div class="trending__cta">
+                    <button type="submit">Read Full Review</button>
+                </div>
+            </div>
+            <!-- Individual complaint box -->
+            <div class="trending__item">
+                <div class="trending__profile">
+                    <div class="img__container">
+                        <img src="{{url('img/default_profile.png')}}" alt="a good looking man" srcset="">
+                    </div>
+                    <div class="user__info">
+                        <h3 class="user__name">Ganesh Acharya</h3>
+                        <span class="pub__date">2022-12-02</span>
+                    </div>
+                </div>
+
+                <div class="trending__content">
+                    <span class="trending__category">Wash Room</span>
                     <div class="trending__complaint">There has been problem related to AC. Instead of cold air AC has been giving stream of cold water..</div>
                 </div>
 
@@ -304,13 +234,13 @@
                         <img src="{{url('img/default_profile.png')}}" alt="a good looking man" srcset="">
                     </div>
                     <div class="user__info">
-                        <h3 class="user__name">Abhi Kafle</h3>
+                        <h3 class="user__name">Sunil Bista</h3>
                         <span class="pub__date">2022-12-02</span>
                     </div>
                 </div>
 
                 <div class="trending__content">
-                    <span class="trending__category">Class Room</span>
+                    <span class="trending__category">Wash Room</span>
                     <div class="trending__complaint">There has been problem related to AC. Instead of cold air AC has been giving stream of cold water..</div>
                 </div>
 
@@ -331,7 +261,7 @@
                 </div>
 
                 <div class="trending__content">
-                    <span class="trending__category">Class Room</span>
+                    <span class="trending__category">Wash Room</span>
                     <div class="trending__complaint">There has been problem related to AC. Instead of cold air AC has been giving stream of cold water..</div>
                 </div>
 
@@ -341,6 +271,8 @@
             </div>
         </div>
     </section>
+
+
 </div>
 
 <!-- Footer -->
@@ -384,8 +316,8 @@
 
 </footer>
 
+<!-- for logout tooltip -->
 <script src="{{url('js/homepage.js')}}"></script>
 
 </body>
 </html>
-
