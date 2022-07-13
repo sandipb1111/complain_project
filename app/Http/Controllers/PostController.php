@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Login;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -12,10 +13,15 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $paginate=Post::query()
+            ->select('title','content','id','full_name')
+            ->orderBy('id')
+            ->paginate(15);
         $data = ['LoggedUserInfo'=>Login::where('id','=',session('LoggedUser'))->first()];
-        return view('post.post',$data);
+        $info = Post::find($request->id);
+        return view('post.post',$data,compact('info','paginate'));
     }
 
     /**
@@ -82,5 +88,11 @@ class PostController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+    public function complaint(){
+        $data = ['LoggedUserInfo'=>Login::where('id','=',session('LoggedUser'))->first()];
+        return view('create.create',$data);
     }
 }

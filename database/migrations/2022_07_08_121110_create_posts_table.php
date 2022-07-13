@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
+            $table->string('full_name');
             $table->string('title');
             $table->string('content');
             $table->string('category_name');

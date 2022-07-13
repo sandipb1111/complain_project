@@ -6,7 +6,7 @@
     --clr-light-blue-focus: #48b9c7;
     --ff-primary: 'Poppins', sans-serif;
     --clr-valid-theme : green;
-    --clr-invalid-theme : red;
+    --clr-invalid-theme : #ED3131;
 
     --clr-gradient: linear-gradient(234.06deg, #54D4D4 7.16%, #149DE1 76.12%);
 
@@ -17,22 +17,22 @@
 }
 
 .grid__container {
-	display: grid;
-	padding: var(--default-padding);
-	grid-template-columns: 1fr auto;
+    display: grid;
+    padding: var(--default-padding);
+    grid-template-columns: 1fr auto;
 }
 
 .categories__container {
-	display: flex;
-	flex-direction: column;
-	padding: 1em .5em;
-	/* margin-top: 5em; */
-	width: 15em;
-	border: solid 1px var(--clr-light-grey);
-	border-radius: 8px;
-	position: sticky;
-	top: 8em;
-	left: 4em;
+    display: flex;
+    flex-direction: column;
+    padding: 1em .5em;
+    /* margin-top: 5em; */
+    width: 15em;
+    border: solid 1px var(--clr-light-grey);
+    border-radius: 8px;
+    position: sticky;
+    top: 8em;
+    left: 4em;
     z-index: 3;
 }
 
@@ -54,6 +54,7 @@
     color: white;
     box-sizing: border-box;
     border-radius: 8px;
+    border: solid 1px white;        /* remove abnormal border issue */
 }
 
 .active__category:hover {
@@ -64,7 +65,7 @@
 
 /* MAIN SECTION FOR GIVEN CATEGORY */
 .categories__content__container {
-	max-width: 80%;
-	margin-left: 18em;
-	margin-top: -14em;
+    max-width: 80%;
+    margin-left: 18em;
+    margin-top: -14em;
 }

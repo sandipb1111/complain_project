@@ -50,7 +50,7 @@
 
     <div class="links">
         <span>Already have an account?</span>
-        <a href="{{ route('auth.login') }}" target="_blank" rel="noopener noreferrer">-Log In</a>
+        <a href="{{ route('auth.login') }}" rel="noopener noreferrer">-Log In</a>
 
     </div>
 </form>

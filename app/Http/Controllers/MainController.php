@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Login;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class MainController extends Controller
@@ -14,7 +15,7 @@ class MainController extends Controller
 
     public function register()
     {
-        return view('.auth.register');
+        return view('auth.register');
     }
 
     public function check(Request $request)
@@ -49,13 +50,25 @@ class MainController extends Controller
         }
         }
         public function homepage(){
+            $paginate=Post::query()
+                ->select('title','content','id','full_name')
+                ->orderBy('id')
+                ->paginate(15);
             $data = ['LoggedUserInfo'=>Login::where('id','=',session('LoggedUser'))->first()];
-            return view('homepage.homepage',$data);
+            $info = Post::all();
+            $count=0;
+            return view('homepage.homepage',$data,compact('info','paginate','count'));
         }
         public function category(){
+        $info = Post::all();
             $data = ['LoggedUserInfo'=>Login::where('id','=',session('LoggedUser'))->first()];
-        return view('category.categories',$data);
+        return view('category.categories',$data,compact('info'));
         }
+        public function community(){
+            $data = ['LoggedUserInfo'=>Login::where('id','=',session('LoggedUser'))->first()];
+            return view('community.community',$data);
+        }
+
 
 
 

@@ -33,7 +33,6 @@
         @endif
         @if($LoggedUserInfo)
         <div class="nav__profile">
-            {{ $LoggedUserInfo['username'] }}
             <div class="img__container">
 
                 <img src="{{url('img/default_profile.png')}}" alt="a good looking man" srcset="">
@@ -51,17 +50,22 @@
 <div class="grid__container">
     <section class="categories__container">
         <div class="category__title">CATEGORY</div>
-        <a href="#"class="category active__category">Wash Room</a>
-        <a href="#"class="category">Library</a>
-        <a href="#"class="category">Canteen</a>
-        <a href="#"class="category">Sanitation</a>
-        <a href="#"class="category">Wash Room</a>
-        <a href="#"class="category">Miscellaneous</a>
-    </section>
+
+         <a href="#"class="category active__category">College</a>
+        <a href="#"class="category">Hospital</a>
+        <a href="#"class="category">Hotel</a>
+        <a href="#"class="category">Movie Hall</a>
+        <a href="#"class="category">Shopping centers</a>
+        <a href="#"class="category">E-commerce / Offline Marts </a>
+        </section>
 
     <!-- This is to adjust grid item  -->
     <div class="adjust"></div>
     <section class="categories__content__container">
+        @if($LoggedUserInfo)
+
+            @foreach($info as $category)
+                @if($category["category_name"]=="College")
 
         <div class="trending__container">
             <!-- Individual complaint box -->
@@ -71,21 +75,25 @@
                         <img src="{{url('img/default_profile.png')}}" alt="a good looking man" srcset="">
                     </div>
                     <div class="user__info">
-                        <h3 class="user__name">Sandeep Basnet</h3>
+                        <h3 class="user__name">{{$category['full_name']}}</h3>
                         <span class="pub__date">2022-12-02</span>
                     </div>
                 </div>
 
                 <div class="trending__content">
-                    <span class="trending__category">Wash Room</span>
-                    <div class="trending__complaint">K ho yesto jpt</div>
+                    <span class="trending__category">{{$category['title']}}</span>
+                    <div class="trending__complaint">{{$category['content']}}</div>
                 </div>
 
                 <div class="trending__cta">
                     <button type="submit">Read Full Review</button>
                 </div>
             </div>
-            <!-- Individual complaint box -->
+            @endif
+            @endforeach
+
+            @endif
+            <!-- Individual complaint box -
             <div class="trending__item">
                 <div class="trending__profile">
                     <div class="img__container">
@@ -106,7 +114,7 @@
                     <button type="submit">Read Full Review</button>
                 </div>
             </div>
-            <!-- Individual complaint box -->
+             Individual complaint box
             <div class="trending__item">
                 <div class="trending__profile">
                     <div class="img__container">
@@ -127,7 +135,7 @@
                     <button type="submit">Read Full Review</button>
                 </div>
             </div>
-            <!-- Individual complaint box -->
+             Individual complaint box
             <div class="trending__item">
                 <div class="trending__profile">
                     <div class="img__container">
@@ -148,7 +156,7 @@
                     <button type="submit">Read Full Review</button>
                 </div>
             </div>
-            <!-- Individual complaint box -->
+             Individual complaint box
             <div class="trending__item">
                 <div class="trending__profile">
                     <div class="img__container">
@@ -169,7 +177,7 @@
                     <button type="submit">Read Full Review</button>
                 </div>
             </div>
-            <!-- Individual complaint box -->
+             Individual complaint box
             <div class="trending__item">
                 <div class="trending__profile">
                     <div class="img__container">
@@ -190,7 +198,7 @@
                     <button type="submit">Read Full Review</button>
                 </div>
             </div>
-            <!-- Individual complaint box -->
+             Individual complaint box
             <div class="trending__item">
                 <div class="trending__profile">
                     <div class="img__container">
@@ -211,7 +219,7 @@
                     <button type="submit">Read Full Review</button>
                 </div>
             </div>
-            <!-- Individual complaint box -->
+            Individual complaint box
             <div class="trending__item">
                 <div class="trending__profile">
                     <div class="img__container">
@@ -232,7 +240,7 @@
                     <button type="submit">Read Full Review</button>
                 </div>
             </div>
-            <!-- Individual complaint box -->
+             Individual complaint box
             <div class="trending__item">
                 <div class="trending__profile">
                     <div class="img__container">
@@ -253,7 +261,7 @@
                     <button type="submit">Read Full Review</button>
                 </div>
             </div>
-            <!-- Individual complaint box -->
+            Individual complaint box
             <div class="trending__item">
                 <div class="trending__profile">
                     <div class="img__container">
@@ -274,6 +282,7 @@
                     <button type="submit">Read Full Review</button>
                 </div>
             </div>
+            -->
         </div>
     </section>
 
